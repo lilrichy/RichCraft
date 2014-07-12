@@ -1,0 +1,30 @@
+package richCraft.gui;
+
+import richCraft.tileentity.TileEntityCopperOven;
+import net.minecraft.client.gui.inventory.GuiContainer;
+import net.minecraft.entity.player.InventoryPlayer;
+import net.minecraft.inventory.Container;
+
+public class GuiCopperOven extends GuiContainer{
+
+	public TileEntityCopperOven copperOven;
+	
+	public GuiCopperOven(InventoryPlayer inventoryPlayer, TileEntityCopperOven entity) {
+		super(ContainerCopperOven(inventoryPlayer, entity));
+	this.copperOven = entity;
+	}
+
+
+
+
+
+
+	@Override
+	protected void drawGuiContainerBackgroundLayer(float var1, int var2,
+			int var3) {
+		// TODO Auto-generated method stub
+		
+	}
+	
+
+}

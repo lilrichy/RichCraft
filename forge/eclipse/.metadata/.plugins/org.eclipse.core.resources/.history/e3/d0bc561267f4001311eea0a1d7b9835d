@@ -1,0 +1,141 @@
+package richCraft;
+
+import richCraft.blocks.CopperBlock;
+import richCraft.blocks.CopperOre;
+import richCraft.blocks.RCOres;
+import richCraft.blocks.TestBlock;
+import richCraft.handles.CraftingHandler;
+import richCraft.items.DiamondSharpeningStone;
+import richCraft.items.RCItems;
+import richCraft.items.SharpeningStone;
+import richCraft.worldGen.RichCraftWorldGen;
+import net.minecraft.block.Block;
+import net.minecraft.block.material.Material;
+import net.minecraft.creativetab.CreativeTabs;
+import net.minecraft.init.Blocks;
+import net.minecraft.init.Items;
+import net.minecraft.item.Item;
+import net.minecraft.item.ItemStack;
+import net.minecraftforge.oredict.OreDictionary;
+import cpw.mods.fml.common.FMLCommonHandler;
+import cpw.mods.fml.common.Mod;
+import cpw.mods.fml.common.Mod.EventHandler;
+import cpw.mods.fml.common.event.FMLInitializationEvent;
+import cpw.mods.fml.common.event.FMLPostInitializationEvent;
+import cpw.mods.fml.common.event.FMLPreInitializationEvent;
+import cpw.mods.fml.common.registry.GameRegistry;
+import cpw.mods.fml.relauncher.Side;
+import cpw.mods.fml.relauncher.SideOnly;
+
+@Mod(modid = RichCraft.modid, version = RichCraft.version)
+public class RichCraft {
+	public static final String modid = "RichCraft";
+	public static final String version = "Dev 0.0.1";
+
+	
+	
+	RichCraftWorldGen eventWorldGen = new RichCraftWorldGen();
+	
+	
+	
+	
+	// Creative tab
+	public static CreativeTabs richCraftTab;
+
+	// ------------Variables---------------------------------------------------------------------------------------
+	
+	// Ore variables
+	public static Block oreCopperOre;
+		
+	// Item variables
+	public static Item itemCopperIngot;
+	public static Item itemBlade;
+	public static Item itemSharpeningStone;
+	public static Item itemDiamondSharpeningStone;
+
+	// Block variables
+	public static Block blockTestBlock;
+
+	public static Block blockCopperBlock;
+
+	// end of variables
+
+	@EventHandler
+	public void PreInit(FMLPreInitializationEvent preEvent) {
+	
+		// Creative Tab Registering
+		richCraftTab = new CreativeTabs("richCraft") {
+			@Override
+			@SideOnly(Side.CLIENT)
+			public Item getTabIconItem() {
+				return Item.getItemFromBlock(oreCopperOre);
+			}
+		};
+
+		// ------------Registers-----------------------------------------------------------------------------------------
+
+		
+		// Ores Registering
+		oreCopperOre = new RCOres(Material.rock).setBlockName("CopperOre");
+		GameRegistry.registerBlock(oreCopperOre, "CopperOre");
+		
+		// Item Registering
+		itemCopperIngot = new RCItems().setUnlocalizedName("CopperIngot");
+		GameRegistry.registerItem(itemCopperIngot, "CopperIngot");
+		
+		itemBlade = new RCItems().setUnlocalizedName("Blade");
+		GameRegistry.registerItem(itemBlade, "Blade");
+		
+		itemSharpeningStone = new SharpeningStone().setUnlocalizedName("SharpeningStone");
+		GameRegistry.registerItem(itemSharpeningStone, "SharpeningStone");
+				
+		itemDiamondSharpeningStone = new DiamondSharpeningStone().setUnlocalizedName("DiamondSharpeningStone");		
+		GameRegistry.registerItem(itemDiamondSharpeningStone, "DiamondSharpeningStone");
+		
+		// Block Registering
+		blockTestBlock = new TestBlock(Material.rock).setBlockName("TestBlock");
+		GameRegistry.registerBlock(blockTestBlock, "TestBlock");
+
+		blockCopperBlock = new CopperBlock(Material.iron)
+				.setBlockName("CopperBlock");
+		GameRegistry.registerBlock(blockCopperBlock, "CopperBlock");
+
+		
+		//Spawn
+		GameRegistry.registerWorldGenerator(eventWorldGen, 0);
+		
+		// end of registers
+	}
+
+	@EventHandler
+	public void Init(FMLInitializationEvent event) {
+
+		FMLCommonHandler.instance().bus().register(new CraftingHandler());
+		
+		
+		// Smelter Recipes
+		GameRegistry.addSmelting(oreCopperOre, new ItemStack(itemCopperIngot),
+				0);
+
+		// Crafting Recipes
+		GameRegistry.addRecipe(new ItemStack(blockCopperBlock), new Object[]{"iii", "iii", "iii", 'i', itemCopperIngot});
+		
+		
+		
+		GameRegistry.addRecipe(new ItemStack(itemBlade), new Object[]{"is", 'i', Items.iron_ingot, 's', new ItemStack(itemSharpeningStone, 1, OreDictionary.WILDCARD_VALUE)});
+		GameRegistry.addRecipe(new ItemStack(itemBlade), new Object[]{"id", 'i', Items.iron_ingot, 'd', new ItemStack(itemDiamondSharpeningStone, 1, OreDictionary.WILDCARD_VALUE)});
+		
+
+		// Shapeless Crafting Recipes
+		GameRegistry.addShapelessRecipe(new ItemStack(itemSharpeningStone), new Object[]{Blocks.stone, Blocks.planks});
+		GameRegistry.addShapelessRecipe(new ItemStack(itemDiamondSharpeningStone), new Object[]{Blocks.planks, Items.diamond});
+		
+		
+	}
+
+	@EventHandler
+	public void PostInit(FMLPostInitializationEvent postEvent) {
+
+	}
+
+}

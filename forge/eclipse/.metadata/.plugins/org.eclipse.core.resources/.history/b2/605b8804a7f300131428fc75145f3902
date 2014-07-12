@@ -1,0 +1,13 @@
+package com.reigens.mowers;
+
+import cpw.mods.fml.common.Mod;
+
+
+@Mod(modid = mowers.modid, version = mowers.version)
+public class mowers {
+
+	public static final String modid = "Mowers";
+	public static final String version = "0.0.1";
+	
+	
+}

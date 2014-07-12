@@ -1,0 +1,26 @@
+package richCraft.container;
+
+import richCraft.tileentity.TileEntityCopperOven;
+import net.minecraft.entity.player.EntityPlayer;
+import net.minecraft.entity.player.InventoryPlayer;
+import net.minecraft.inventory.Container;
+
+public class ContainerCopperOven extends Container{
+
+	private TileEntityCopperOven copperOven;
+	
+	public ContainerCopperOven(InventoryPlayer Inventory, TileEntityCopperOven tileentity) {
+		
+		this.copperOven = tileentity;
+		
+	}
+	
+	
+	
+	@Override
+	public boolean canInteractWith(EntityPlayer var1) {
+		// TODO Auto-generated method stub
+		return false;
+	}
+
+}

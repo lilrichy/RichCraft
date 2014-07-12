@@ -1,0 +1,7 @@
+package com.reigens.mowers;
+
+import net.minecraft.block.Block;
+
+public class hedgeBlock extends Block {
+
+}

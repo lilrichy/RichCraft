@@ -1,0 +1,41 @@
+package richCraft.gui;
+
+import richCraft.RichCraft;
+import richCraft.tileentity.TileEntityCopperOven;
+import net.minecraft.client.gui.inventory.GuiContainer;
+import net.minecraft.client.resources.I18n;
+import net.minecraft.entity.player.InventoryPlayer;
+import net.minecraft.inventory.Container;
+import net.minecraft.util.ResourceLocation;
+
+public class GuiCopperOven extends GuiContainer {
+
+	public static final ResourceLocation bground = new ResourceLocation(RichCraft.modid, "textures/gui/GuiCopperOven.png");
+
+	public TileEntityCopperOven copperOven;
+
+	public GuiCopperOven(InventoryPlayer inventoryPlayer, TileEntityCopperOven entity) {
+		super(ContainerCopperOven(inventoryPlayer, entity));
+		this.copperOven = entity;
+
+		this.xSize = 176;
+		this.ySize = 166;
+
+	}
+
+	public void drawGuiContainerForegroundLayer(int par1, int par2) {
+		String name = this.copperOven.hasCustomInventoryName() ? this.copperOven.getInventoryName() : I18n.format(this.copperOven.getInventoryName(),
+				new Object[0]);
+
+		this.fontRendererObj.drawString(name, this.xSize / 2 - this.fontRendererObj.getStringWidth(name) / 2, 6, 4210752);
+		this.fontRendererObj.drawString(I18n.format("container.inventory", new Object[0]), 8, this.ySize - 96 + 2, 4210752);
+
+	}
+
+	@Override
+	protected void drawGuiContainerBackgroundLayer(float var1, int var2, int var3) {
+		// TODO Auto-generated method stub
+
+	}
+
+}

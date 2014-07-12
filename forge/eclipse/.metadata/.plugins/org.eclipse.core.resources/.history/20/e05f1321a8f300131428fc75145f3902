@@ -1,0 +1,16 @@
+#Minecraft server properties
+#Sat Jun 14 05:41:23 EDT 2014
+player-idle-timeout=0
+resource-pack=
+online-mode=true
+gamemode=0
+difficulty=1
+spawn-animals=true
+server-ip=
+pvp=true
+server-port=25565
+allow-flight=false
+force-gamemode=false
+spawn-npcs=true
+generate-structures=true
+motd=A Minecraft Server

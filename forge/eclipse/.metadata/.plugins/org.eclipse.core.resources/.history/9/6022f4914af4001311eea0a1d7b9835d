@@ -1,0 +1,9 @@
+itemGroup.richCraft=RichCraft
+
+tile.TestBlock.name=Testing Block
+tile.CopperOre.name=Copper Ore
+tile.CopperBlock.name=Block of Copper
+
+
+
+item.CopperIngot.name=Copper Ingot

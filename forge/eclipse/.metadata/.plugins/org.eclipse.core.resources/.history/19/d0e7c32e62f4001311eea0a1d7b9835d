@@ -1,0 +1,5 @@
+package richCraft.handles;
+
+public class CraftingHandler {
+
+}

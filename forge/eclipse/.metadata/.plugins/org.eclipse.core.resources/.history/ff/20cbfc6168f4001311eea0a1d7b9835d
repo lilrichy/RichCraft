@@ -1,0 +1,12 @@
+itemGroup.richCraft=RichCraft
+
+tile.TestBlock.name=Testing Block, for testing only!
+tile.CopperOre.name=Copper Ore
+tile.CopperBlock.name=Block of Copper
+
+
+
+item.CopperIngot.name=Copper Ingot
+item.SharpeningStone.name=Sharpening Stone
+item.DiamondSharpeningStone.name=Diamond Sharpening Stone
+item.blade.name=Sharpened Blade

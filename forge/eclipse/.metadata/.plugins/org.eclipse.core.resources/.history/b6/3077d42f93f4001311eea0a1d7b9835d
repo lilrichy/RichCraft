@@ -1,0 +1,7 @@
+package richCraft.tileentity;
+
+import net.minecraft.tileentity.TileEntity;
+
+public class TileEntityCopperOven extends TileEntity {
+
+}

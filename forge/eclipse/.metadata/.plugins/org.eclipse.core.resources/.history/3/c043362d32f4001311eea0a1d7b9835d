@@ -1,0 +1,13 @@
+package richCraft;
+
+import cpw.mods.fml.common.Mod;
+
+@Mod(modid = RichCraft.modid, version = RichCraft.version)
+
+public class RichCraft {
+	
+	public static final String modid = "RichCraft";
+	public static final String version = "Dev 0.0.1";
+	
+
+}

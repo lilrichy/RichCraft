@@ -1,0 +1,35 @@
+package com.reigens.mowers;
+
+import net.minecraft.creativetab.CreativeTabs;
+import net.minecraft.item.Item;
+import cpw.mods.fml.common.Mod;
+import cpw.mods.fml.common.Mod.EventHandler;
+import cpw.mods.fml.common.event.FMLInitializationEvent;
+
+
+@Mod(modid = mowers.modid, version = mowers.version)
+public class mowers {
+
+	public static final String modid = "Mowers";
+	public static final String version = "0.0.1";
+	
+	public static CreativeTabs Mowers =new CreativeTabs("mowersTab"){
+
+
+		public Item getTabIconItem() {
+			// TODO Auto-generated method stub
+			return null;
+		}
+		
+	};
+	
+	
+	@EventHandler
+	public void init(FMLInitializationEvent e){
+		System.out.println("Mowers are being started up and getting ready to cut some grass!");
+	
+	
+	
+	}
+	
+}

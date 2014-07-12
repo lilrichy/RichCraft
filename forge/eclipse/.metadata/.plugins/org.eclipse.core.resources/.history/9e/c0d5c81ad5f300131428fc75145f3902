@@ -1,0 +1,11 @@
+package com.reigens.mowers.items;
+
+import net.minecraft.init.Items;
+
+public class GenItems extends Items{
+	
+	public GenItems() {
+		this.setCreativeTab(getCreativeTab().)
+	}
+
+}

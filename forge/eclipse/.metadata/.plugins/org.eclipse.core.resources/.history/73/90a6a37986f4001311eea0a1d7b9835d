@@ -1,0 +1,16 @@
+package richCraft.blocks;
+
+import net.minecraft.block.BlockContainer;
+import net.minecraft.block.material.Material;
+
+public class CopperOven extends BlockContainer{
+
+	private final boolean isActive;
+	
+	public CopperOven(boolean isActive) {
+		super(Material.iron);
+	
+		this.isActive = isActive;
+	}
+
+}

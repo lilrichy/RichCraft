@@ -1,0 +1,57 @@
+package com.reigens.mowers;
+
+import com.reigens.mowers.blocks.hedgeBlock;
+
+import net.minecraft.block.Block;
+import net.minecraft.creativetab.CreativeTabs;
+import net.minecraft.init.Items;
+import net.minecraft.item.Item;
+import net.minecraft.item.ItemStack;
+import cpw.mods.fml.common.Mod;
+import cpw.mods.fml.common.Mod.EventHandler;
+import cpw.mods.fml.common.event.FMLInitializationEvent;
+import cpw.mods.fml.common.event.FMLPreInitializationEvent;
+import cpw.mods.fml.common.registry.GameRegistry;
+
+
+@Mod(modid = mowers.modid, version = mowers.version)
+public class mowers {
+
+	// ID and Version INFO
+	public static final String modid = "Mowers";
+	public static final String version = "0.0.1";
+	
+	// Blocks
+	public static Block hedgeBlock;
+	
+	//items
+	public static Item clippers;
+	
+	
+	//Creative Tabs
+	public static CreativeTabs Mowers = new CreativeTabs("mowersTab"){
+		public Item getTabIconItem() {
+			return Items.stick;
+		}
+	};
+	
+	@EventHandler
+	public void preInit(FMLPreInitializationEvent e){
+		hedgeBlock = new hedgeBlock().setBlockName("hedgeBlock").setCreativeTab(Mowers).setBlockTextureName(modid + ":" + "hedgeblock");
+		GameRegistry.registerBlock(hedgeBlock, "hedgeBlock");
+		
+		clippers = new Item().setUnlocalizedName("clippers").setCreativeTab(Mowers).setTextureName(modid + ":" + "clipper");
+		GameRegistry.registerItem(clippers, "clippers");
+	}
+	
+	@EventHandler
+	public void init(FMLInitializationEvent e){
+		System.out.println("Mowers are being started up and getting ready to cut some grass!");
+	
+		//Crafting Recipes
+		GameRegistry.addRecipe(new ItemStack(clippers), new Object[]{"i i", " i ", "s s", 'i', Items.iron_ingot, 's', Items.stick});
+	
+	
+	}
+	
+}

@@ -1,0 +1,14 @@
+package com.reigens.mowers;
+
+import net.minecraft.block.Block;
+import net.minecraft.block.material.Material;
+
+public class hedgeBlock extends Block {
+
+	public hedgeBlock() {
+		super(Material.leaves);
+		
+		// TODO Auto-generated constructor stub
+	}
+
+}
